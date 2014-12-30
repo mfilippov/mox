@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Specialized;
-using System.Data.Entity.Core.Metadata.Edm;
-using System.Web;
+﻿using System.Diagnostics;
 using System.Web.Mvc;
 using System.Web.Routing;
-using Moq;
 using Xunit;
 using Xunit.Should;
 
@@ -31,28 +26,9 @@ namespace Mox.Tests
 
         public string GetActionUrl()
         {
+            Debug.Assert(Request.Url != null, "Request.Url != null");
             return Url.Action("GetActionUrl", "Demo", null, Request.Url.Scheme);
         }
-    }
-
-    public static class MvcControllerMockingExtensions
-    {
-        public static T SetGetContextWithUrl<T>(this T controller, string url, Action<RouteCollection> setupRoutes) where T : Controller
-        {
-            var httpContext = Mock.Of<HttpContextBase>();
-            Mock.Get(httpContext).Setup(o => o.Request.Url).Returns(new Uri(url));
-            Mock.Get(httpContext).Setup(o => o.Response.ApplyAppPathModifier(It.IsAny<string>())).Returns<string>(r => r);
-
-            controller.ControllerContext = new ControllerContext(httpContext, new RouteData(), controller);
-            
-            var routes = new RouteCollection();
-            setupRoutes(routes);
-            
-            controller.Url = new UrlHelper(new RequestContext(httpContext, new RouteData()), routes);
-
-            return controller;
-        }
-
     }
 
     public class MvcControllerMockingExtensionsTests
