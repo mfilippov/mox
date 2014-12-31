@@ -2,9 +2,9 @@
 using System.Runtime.InteropServices;
 
 [assembly: AssemblyTitle("Mox.Tests")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Moq extensions library tests.")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("Mikhail Filippov")]
 [assembly: AssemblyProduct("Mox.Tests")]
 [assembly: AssemblyCopyright("Copyright © Mikhail Filippov 2014")]
 [assembly: AssemblyTrademark("")]
