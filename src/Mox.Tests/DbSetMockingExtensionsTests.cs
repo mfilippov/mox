@@ -2,8 +2,8 @@
 using System.Data.Entity;
 using System.Linq;
 using Moq;
+using Shouldly;
 using Xunit;
-using Xunit.Should;
 
 namespace Mox.Tests
 {

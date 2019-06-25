@@ -1,8 +1,8 @@
 ﻿using System.Diagnostics;
 using System.Web.Mvc;
 using System.Web.Routing;
+using Shouldly;
 using Xunit;
-using Xunit.Should;
 
 namespace Mox.Tests
 {

@@ -70,3 +70,4 @@ Web/Properties/PublishProfiles/Standart.pubxml.user
 #Lucene index files
 Web/lucene_index/
 Backup/
+.idea/
