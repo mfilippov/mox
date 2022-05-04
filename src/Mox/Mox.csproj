@@ -10,14 +10,13 @@
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageProjectUrl>https://github.com/mfilippov/mox</PackageProjectUrl>
     <RepositoryUrl>https://github.com/mfilippov/mox</RepositoryUrl>
-    <PackageReleaseNotes>Change API MockWithList -> MockDbSet to match new Moq behvaiour.</PackageReleaseNotes>
+    <PackageReleaseNotes>Change API MockWithList -&gt; MockDbSet to match new Moq behvaiour.</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="EntityFramework" Version="6.2.0" />
-    <PackageReference Include="Microsoft.AspNet.Mvc" Version="5.2.7" />
-    <PackageReference Include="Moq" Version="4.12.0" />
-    <PackageReference Include="Shouldly" Version="3.0.2" />
+    <PackageReference Include="EntityFramework" Version="6.4.4" />
+    <PackageReference Include="Microsoft.AspNet.Mvc" Version="5.2.8" />
+    <PackageReference Include="Moq" Version="4.17.2" />
   </ItemGroup>
 
   <ItemGroup>

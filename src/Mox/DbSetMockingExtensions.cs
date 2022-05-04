@@ -15,6 +15,8 @@ namespace Mox
             mockDbSet.As<IQueryable<T>>().Setup(m => m.Expression).Returns(queryable.Expression);
             mockDbSet.As<IQueryable<T>>().Setup(m => m.ElementType).Returns(queryable.ElementType);
             mockDbSet.As<IQueryable<T>>().Setup(m => m.GetEnumerator()).Returns(() => queryable.GetEnumerator());
+            mockDbSet.Setup(d => d.Add(It.IsAny<T>())).Callback<T>(data.Add);
+            mockDbSet.Setup(d => d.Remove(It.IsAny<T>())).Callback<T>(t => data.Remove(t));
 
             return mockDbSet.Object;
         }
