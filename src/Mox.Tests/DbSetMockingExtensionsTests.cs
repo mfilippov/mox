@@ -1,11 +1,15 @@
 ﻿using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using Shouldly;
 using Xunit;
 
 namespace Mox.Tests
 {
-    public class Entity { }
+    public class Entity
+    {
+        public string Prop => GetType().Name;
+    }
     
     public class DbSetMockingExtensionsTests
     {
@@ -39,6 +43,14 @@ namespace Mox.Tests
             var dbSet = entities.MockDbSet();
             dbSet.Remove(entity2);
             entities.Count.ShouldBe(1);
+        }
+
+        [Fact]
+        public void ShouldMockDbSetInclude()
+        {
+            var entities =  new List<Entity> { new Entity(), new Entity() }
+                .MockDbSet(new List<string>{"Prop"}).Include(e => e.Prop).ToList();
+            entities.Count.ShouldBe(2);
         }
     }
 }
